@@ -22,7 +22,7 @@ public class NeighborhoodLibrary {
     }
 
     private static void showHomeScreen() {
-        System.out.println("\n📚 Welcome to the Neighborhood Library");
+        System.out.println("\n Welcome to the Neighborhood Library");
         System.out.println("1. Show Available Books");
         System.out.println("2. Show Checked Out Books");
         System.out.println("3. Exit");
@@ -33,12 +33,12 @@ public class NeighborhoodLibrary {
             case "1": showAvailableBooks(); break;
             case "2": showCheckedOutBooks(); break;
             case "3": System.out.println("Goodbye!"); System.exit(0); break;
-            default: System.out.println("❌ Invalid option. Try again.");
+            default: System.out.println("Invalid option. Try again.");
         }
     }
 
     private static void showAvailableBooks() {
-        System.out.println("\n📖 Available Books:");
+        System.out.println("\n Available Books:");
         boolean anyAvailable = false;
         for (Book book : books) {
             if (!book.isCheckedOut()) {
@@ -62,17 +62,17 @@ public class NeighborhoodLibrary {
                 System.out.print("Enter your name: ");
                 String name = scanner.nextLine();
                 book.checkOut(name);
-                System.out.println("✅ Book checked out to " + name);
+                System.out.println(" Book checked out to " + name);
             } else {
-                System.out.println("⚠️ Book is not available.");
+                System.out.println("Book is not available.");
             }
         } catch (NumberFormatException e) {
-            System.out.println("⚠️ Invalid ID.");
+            System.out.println(" Invalid ID.");
         }
     }
 
     private static void showCheckedOutBooks() {
-        System.out.println("\n📕 Checked Out Books:");
+        System.out.println("\n Checked Out Books:");
         boolean anyCheckedOut = false;
         for (Book book : books) {
             if (book.isCheckedOut()) {
@@ -96,12 +96,12 @@ public class NeighborhoodLibrary {
                 Book book = findBookById(id);
                 if (book != null && book.isCheckedOut()) {
                     book.checkIn();
-                    System.out.println("✅ Book checked in.");
+                    System.out.println(" Book checked in.");
                 } else {
-                    System.out.println("⚠️ Invalid ID or book not checked out.");
+                    System.out.println(" Invalid ID or book not checked out.");
                 }
             } catch (NumberFormatException e) {
-                System.out.println("⚠️ Invalid input.");
+                System.out.println(" Invalid input.");
             }
         }
     }
